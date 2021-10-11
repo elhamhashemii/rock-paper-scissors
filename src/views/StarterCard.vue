@@ -10,7 +10,7 @@
 export default {
     methods: {
         goStart(){
-            this.$router.push('/game');
+            this.$router.push('/loading');
         }
     }
 }

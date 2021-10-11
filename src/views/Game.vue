@@ -1,6 +1,6 @@
 <template>
   <div class="main-game">
-      <router-link :to="resLink">Click me to see the results</router-link>
+      <!-- <router-link :to="resLink">Click me to see the results</router-link> -->
       <div class="hands">
         <img class="imgs" src="../img/rock.png" alt="">
         <img class="imgs" src="../img/rock2.png" alt="">
@@ -12,15 +12,20 @@
 export default {
     data(){
         return {
-            resLink: '/game/result',
+            resLink: '/result',
         }
+    },
+    created(){
+        setTimeout(() => {
+            this.$router.push('/result')
+        }, 3000);
     }
     
 }
 </script>
 
 <style scoped>
-a{
+/* a{
     background-color: rgb(87, 13, 62);
     color: #fff;
     padding: 30px;
@@ -29,7 +34,7 @@ a{
     left: 0;
     top: 30px;
     text-decoration: none;
-}
+} */
 .imgs{
     animation: bounce 1s infinite;
     margin: 0 60px;

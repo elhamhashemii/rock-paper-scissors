@@ -1,17 +1,18 @@
 <template>
-    <img class="randomImg" :src="this.src" alt="">
+    <!-- <img class="randomImg" :src="this.src" alt=""> -->
+    <span>{{ emoji }}</span>
 </template>
 
 <script>
 export default {
     props: [
-        'src'
+        'emoji'
     ],
 }
 </script>
 
-<style>
-.res{
+<style scoped>
+/* .res{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -20,5 +21,8 @@ export default {
 .randomImg{
     width: 200px;
     height: 200px;
+} */
+span{
+    font-size: 100px;
 }
 </style>

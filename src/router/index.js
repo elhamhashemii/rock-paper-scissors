@@ -1,24 +1,29 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import StarterCard from '../views/StarterCard.vue'
-// import Game from '../views/Game.vue'
+import Game from '../views/Game.vue'
 import GameStarter from '../views/GameStarter.vue'
 // import randomRes from '../views/randomRes.vue'
 import Test from '../views/Test.vue'
 import Result from '../views/Result.vue'
 
 const routes = [
-    {
-        path: '/',
-        name: 'starter-card',
-        component: StarterCard
-    },
   {
-    path: '/game',
+    path: '/',
+    name: 'starter-card',
+    component: StarterCard
+  },
+  {
+    path: '/loading',
     name: 'GameStarter',
     component: GameStarter
   },
   {
-    path: '/game/result',
+    path: '/game',
+    name: 'game',
+    component: Game
+  },
+  {
+    path: '/result',
     name: 'result',
     component: Result
   },

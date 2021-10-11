@@ -12,7 +12,11 @@
       <div class="option" @click="selectValue('paper')">Paper</div>
       <div class="option" @click="selectValue('scissors')">Scissors</div>
     </div>
-    <span class="choice">{{ selectedValue }}</span>
+    <p>
+      <span class="choice">{{ selectedValue }}</span>
+      <span v-if="selected"> ☑️</span>
+    </p>
+    <span v-if="errorMsg">Please choose something ...</span>
     <span class="go-btn" @click="startGame()">GO</span>
   </div>
   <div v-else>
@@ -28,17 +32,32 @@ export default {
   },
   data() {
     return {
-      selectedValue: "",
+      selectedValue: "Not Selected yet ... ",
       loading: true,
+      selected: false,
+      errorMsg: false
     };
   },
   methods: {
     startGame() {
       this.loading = false;
+      // if(this.selectedValue = "Not Selected yet ... "){
+      //   this.errorMsg = true;
+      // }
     },
     selectValue(value) {
-      this.selectedValue = value + " " + "value";
-      this.selectedValue.toUpperCase();
+      this.selectedValue = value;
+      this.selected = true;
+      this.selectedValue.toUpperCase() // I dont know why it doesnt works
+      if (value == "scissors") {
+        this.$store.state.userHand = "✌🏼"
+      }
+      else if (value == "rock") {
+        this.$store.state.userHand = "✊🏼"
+      }
+      else {
+        this.$store.state.userHand = "✋🏼" 
+      }
     },
   },
 };
@@ -93,4 +112,7 @@ p {
 .go-btn:hover {
   background-color: rgb(5, 0, 99);
 }
+/* span{
+  margin-top: 20px;
+} */
 </style>
